@@ -1,7 +1,7 @@
 SlapApp::Application.routes.draw do
   get "static_pages/home"
   get "static_pages/help"
-  root 'topics#index'
+  root 'static_pages#home'
 
   resources :topics
 
