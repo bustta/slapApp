@@ -48,3 +48,5 @@ gem 'devise'
 gem 'omniauth-facebook'
 
 gem 'bootstrap-sass', '~> 3.1.1'
+
+gem 'simple_form'
