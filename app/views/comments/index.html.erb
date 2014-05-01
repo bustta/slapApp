@@ -1,0 +1,33 @@
+<div class="topicContainer">
+
+<h1>Listing comments</h1>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>comment</th>
+
+        <th></th>
+        <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td><%= comment.content %></td>
+          <td> <%= link_to("Edit", edit_topic_comment_path(comment.topic, comment), :class => "btn btn-mini")%>
+        <%= link_to("Delete", topic_comment_path(comment.topic, comment), :class => "btn btn-mini", :method => :delete, :confirm => "Are you sure?" ) %> </td>
+
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Back to Topics', topics_path %>
+
+</div>

@@ -1,4 +1,15 @@
 class CommentsController < ApplicationController
+  before_action :login_required, :only => [:new, :create, :edit,:update,:destroy]
+
+  def index
+    @topic = Topic.find(params[:topic_id])
+    @comments = @topic.comments
+  end
+  # def show
+  #   @topic = Topics.find(params[:topic_id])
+  #   @comments = @topic.comments
+
+  # end
   def new
     @topic = Topic.find(params[:topic_id])
     @comment = @topic.comments.build

@@ -2,13 +2,14 @@
 
 <h1>Listing topics</h1>
 
-  <table>
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>Title</th>
         <th>Description</th>
         <th>UserId</th>
         <th>UserName</th>
+        <th>CommentsCount</th>
         <th></th>
         <th></th>
         <th></th>
@@ -22,9 +23,14 @@
           <td><%= topic.description %></td>
           <td><%= topic.user_id %></td>
           <td><%= topic.owner.name %></td>
-          <td><%= link_to 'Show', topic %></td>
-          <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-          <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to topic.comments.count, topic_comments_path(topic.id) %></td>
+          <td><%= link_to 'Show', topic,
+            :class=> "btn btn-default" %></td>
+          <td><%= link_to 'Edit', edit_topic_path(topic),
+            :class=> "btn btn-default" %></td>
+          <td><%= link_to 'Destroy', topic, method: :delete,
+            data: { confirm: 'Are you sure?' },
+            :class=> "btn btn-default" %></td>
         </tr>
       <% end %>
     </tbody>
@@ -32,6 +38,6 @@
 
   <br>
 
-  <%= link_to 'New Topic', new_topic_path %>
-  <%= link_to "Logout",destroy_user_session_path, :method => :delete  %>
+  <%= link_to 'New Topic', new_topic_path, :class=> "btn btn-default" %>
+
 </div>

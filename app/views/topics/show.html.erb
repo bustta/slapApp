@@ -1,32 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="topicDetails">
 
-<p>
-  <strong>Title:</strong>
-  <%= @topic.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @topic.description %>
-</p>
+<div class="topicDescription">
+  <h3>
+    <%= @topic.title %>
+  </h3>
 
-<p>
-  <strong>User:</strong>
-  <%= @topic.user_id %>
-</p>
-<table class="table">
+  <h5>
+    <%= @topic.description %>
+  </h5>
+
+  <h5>
+     by
+    <%= @topic.owner.name %>
+  </h5>
+  <h5>
+     Posted @
+    <%= @topic.created_at %>
+  </h5>
+  <h5>
+     Updated @
+    <%= @topic.updated_at %>
+  </h5>
+</div>
+
+<table class="table table-hover">
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
         <td> <%= comment.content %> </td>
-        <td> <%= link_to("Edit", edit_topic_comment_path(comment.topic, comment), :class => "btn btn-mini")%>
-        <%= link_to("Delete", topic_comment_path(comment.topic, comment), :class => "btn btn-mini", :method => :delete, :confirm => "Are you sure?" ) %> </td>
+        <td> <%= comment.created_at %></td>
+        <td> <%= comment.updated_at %></td>
+        <td> <%= link_to("Edit", edit_topic_comment_path(comment.topic, comment), :class => "btn btn-default")%>
+        <%= link_to("Delete", topic_comment_path(comment.topic, comment), :class => "btn btn-default", :method => :delete, :confirm => "Are you sure?" ) %> </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
-<%= link_to 'Comment', new_topic_comment_path(@topic) %>
+<%= link_to 'Edit', edit_topic_path(@topic), :class => "btn btn-default" %>
+<%= link_to 'Back', topics_path, :class => "btn btn-default" %>
+<%= link_to 'Add a Comment', new_topic_comment_path(@topic), :class => "btn btn-default" %>
+</div>

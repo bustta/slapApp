@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @topic.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @topic.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @topic.user_id %>
+</p>
+<table class="table">
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td> <%= comment.content %> </td>
+        <td> <%= link_to("Edit", edit_topic_comment_path(comment.topic, comment), :class => "btn btn-mini")%>
+        <%= link_to("Delete", topic_comment_path(comment.topic, comment), :class => "btn btn-mini", :method => :delete, :confirm => "Are you sure?" ) %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>
+<%= link_to 'Comment', new_topic_comment_path(@topic) %>

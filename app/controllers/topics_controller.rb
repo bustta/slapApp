@@ -22,7 +22,14 @@ class TopicsController < ApplicationController
 
   # GET /topics/1/edit
   def edit
-    @topic = current_user.topics.find(topic_params)
+
+    #@topic = current_user.topics.find(params[:id])
+    @topic = Topic.find(params[:id])
+    if @topic.owner != current_user
+      flash[:notice] = "You are not OWNER. No Permission!"
+      redirect_to root_path
+    end
+
   end
 
   # POST /topics
@@ -46,7 +53,8 @@ class TopicsController < ApplicationController
   # PATCH/PUT /topics/1.json
   def update
 
-    @topic = current_user.topics.find(topic_params)
+    # @topic = current_user.topics.find(topic_params)
+    @topic = current_user.topics.find(params[:id])
     respond_to do |format|
       if @topic.update(topic_params)
         format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
@@ -61,12 +69,23 @@ class TopicsController < ApplicationController
   # DELETE /topics/1
   # DELETE /topics/1.json
   def destroy
-    @topic = current_user.topics.find(topic_params)
-    @topic.destroy
-    respond_to do |format|
-      format.html { redirect_to topics_url }
-      format.json { head :no_content }
+#    @topic = current_user.topics.find(params[:id])
+    @topic = Topic.find(params[:id])
+
+    if @topic.owner != current_user
+      flash[:notice] = "You are not OWNER. No Permission!"
+      redirect_to topics_path
+    else
+      @topic.destroy
+      respond_to do |format|
+        format.html { redirect_to topics_url }
+        format.json { head :no_content }
+      end
     end
+
+
+
+
   end
 
   private
@@ -79,4 +98,6 @@ class TopicsController < ApplicationController
     def topic_params
       params.require(:topic).permit(:title, :description, :user_id)
     end
+
+
 end
