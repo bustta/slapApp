@@ -10,4 +10,5 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery-vertical-timeline/dist/jquery-vertical-timeline.min.css
  */

@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery-vertical-timeline/dist/jquery-vertical-timeline.libs.js
+//= require jquery-vertical-timeline/dist/jquery-vertical-timeline.min.js
