@@ -37,7 +37,20 @@
   </table>
 
   <br>
+  <div id="timelineDiv"></div>
 
   <%= link_to 'New Topic', new_topic_path, :class=> "btn btn-default" %>
 
 </div>
+
+<script type="text/javascript">
+   $.getJSON('timeline.json', function(data) {
+      $('#timelineDiv').verticalTimeline({
+        data: data,
+        dateParse: 'DD MMM YYYY',
+        width: '75%'
+      });
+    });
+
+
+</script>
