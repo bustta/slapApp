@@ -32,6 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -50,3 +51,6 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'simple_form'
+
+gem 'debugger'
+gem 'byebug', '>=2.5.0'

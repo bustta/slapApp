@@ -42,15 +42,23 @@
   <%= link_to 'New Topic', new_topic_path, :class=> "btn btn-default" %>
 
 </div>
+<script type="text/json" id="jsonScript">
+  <%= @topics_json.html_safe %>
+</script>
+
 
 <script type="text/javascript">
-   $.getJSON('timeline.json', function(data) {
-      $('#timelineDiv').verticalTimeline({
-        data: data,
-        dateParse: 'DD MMM YYYY',
-        width: '75%'
-      });
-    });
+  var topicsJson = $('#jsonScript').html();
+  var realDataJson = $.parseJSON(topicsJson);
+  console.log(realDataJson);
+
+  $('#timelineDiv').verticalTimeline({
+    data: realDataJson,
+    dateParse: 'MM/DD/YYYY',
+    width: '75%',
+    handleResize: true,
+    defaultExpansion: 'collapsed',
+  });
 
 
 </script>
