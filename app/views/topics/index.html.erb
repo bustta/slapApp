@@ -1,47 +1,11 @@
 <div class="topicContainer">
-
-<h1>Listing topics</h1>
-
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>UserId</th>
-        <th>UserName</th>
-        <th>CommentsCount</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @topics.each do |topic| %>
-        <tr>
-          <td><%= topic.title %></td>
-          <td><%= topic.description %></td>
-          <td><%= topic.user_id %></td>
-          <td><%= topic.owner.name %></td>
-          <td><%= link_to topic.comments.count, topic_comments_path(topic.id) %></td>
-          <td><%= link_to 'Show', topic,
-            :class=> "btn btn-default" %></td>
-          <td><%= link_to 'Edit', edit_topic_path(topic),
-            :class=> "btn btn-default" %></td>
-          <td><%= link_to 'Destroy', topic, method: :delete,
-            data: { confirm: 'Are you sure?' },
-            :class=> "btn btn-default" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-  <div id="timelineDiv"></div>
-
   <%= link_to 'New Topic', new_topic_path, :class=> "btn btn-default" %>
 
+  <div id="timelineDiv"></div>
+
 </div>
+
+
 <script type="text/json" id="jsonScript">
   <%= @topics_json.html_safe %>
 </script>
@@ -55,9 +19,7 @@
   $('#timelineDiv').verticalTimeline({
     data: realDataJson,
     dateParse: 'MM/DD/YYYY',
-    width: '75%',
-    handleResize: true,
-    defaultExpansion: 'collapsed',
+    handleResize: true
   });
 
 

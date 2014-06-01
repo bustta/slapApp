@@ -110,7 +110,7 @@ class TopicsController < ApplicationController
         {
           :title => topic.title,
           :date => topic.created_at.to_formatted_s(:timelineDate),
-          :displaydate => topic.created_at.to_formatted_s(:timelineDate),
+          :displaydate => topic.created_at.to_formatted_s(:timelineDispDate),
           :body => topic.description,
           :user_id => topic.user_id,
           :readmoreurl => topic_path(topic)
