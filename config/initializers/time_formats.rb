@@ -1,3 +1,3 @@
-Time::DATE_FORMATS[:timelineDate] = '%d %b %Y'
-Time::DATE_FORMATS[:timelineDispDate] = '%b %d'
+Time::DATE_FORMATS[:timelineDate] = "%e %b %Y"
+Time::DATE_FORMATS[:timelineDispDate] = "%b %e"
 

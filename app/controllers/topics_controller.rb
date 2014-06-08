@@ -32,8 +32,8 @@ class TopicsController < ApplicationController
     #@topic = current_user.topics.find(params[:id])
     @topic = Topic.find(params[:id])
     if @topic.owner != current_user
-      flash[:notice] = "You are not OWNER. No Permission!"
-      redirect_to root_path
+      #flash[:notice] = "You are not OWNER. No Permission!"
+      redirect_to @topic, notice: "You are not OWNER. No Permission!"
     end
 
   end

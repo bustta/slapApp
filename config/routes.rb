@@ -1,12 +1,8 @@
 SlapApp::Application.routes.draw do
 
 
-  get '/contact', to: 'static_pages#contact'
-  get "static_pages/home"
-  get "static_pages/help"
-  #get "static_pages/contact"
+  root 'pages#index'
 
-  root 'static_pages#home'
 
   resources :topics do
     resources :comments

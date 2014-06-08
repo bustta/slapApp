@@ -1,0 +1,27 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.landingImage
+{
+  border:0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat:no-repeat;
+  margin:0;
+  position:relative;
+  z-index:1;
+  padding-bottom: 0 0 100% 0;
+
+  width:100%;
+  height:100%;
+  background-image: url(http://chrisconnolly.com/2014/img/cover.jpg);
+}
+
+.landingOuter
+{
+  display: table;
+  width:100%;
+  height:100%;
+}

@@ -1,13 +1,15 @@
-<div class="span12">
+<div class="container">
+  <div class="span12">
 
-  <%= simple_form_for [@topic, @comment] do |f| %>
-    <%= f.text_area :content %>
+    <%= simple_form_for [@topic, @comment] do |f| %>
+      <div class="form-group">
+        <label for="comment" class="control-label">Comment</label>
+        <%= f.text_area :content, :id=>"comment", :class=>"form-control" %>
+      </div>
 
-    <div class="form-actions">
-      <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
-    </div>
-  <% end %>
-
-
-
+      <div class="form-actions">
+        <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="topicContainer">
+<div class="container topicContainer">
   <%= link_to 'New Topic', new_topic_path, :class=> "btn btn-default" %>
 
   <div id="timelineDiv"></div>
@@ -18,7 +18,6 @@
 
   $('#timelineDiv').verticalTimeline({
     data: realDataJson,
-    dateParse: 'MM/DD/YYYY',
     handleResize: true
   });
 

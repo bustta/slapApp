@@ -1,17 +1,17 @@
-<div class="span12 editComment">
+<div class="container">
+  <div class="span12 editComment">
 
-  <%= simple_form_for [@topic, @comment] do |f| %>
-    <div class="form-group">
-      <label for="comment" class="control-label">Comment</label>
-      <%= f.text_area :content, :id=>"comment", :class=>"form-control" %>
-    </div>
+    <%= simple_form_for [@topic, @comment] do |f| %>
+      <div class="form-group">
+        <label for="comment" class="control-label">Comment</label>
+        <%= f.text_area :content, :id=>"comment", :class=>"form-control" %>
+      </div>
 
-    <div class="form-actions">
-      <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
-    </div>
+      <div class="form-actions">
+        <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
+      </div>
 
-  <% end %>
+    <% end %>
 
-
-
+  </div>
 </div>
